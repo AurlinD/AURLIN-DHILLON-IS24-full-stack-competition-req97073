@@ -1,9 +1,3 @@
-# # from base image node
-# FROM node:18-alpine
-
-# # sets environment variable for subsequent instruction in build stage
-# ENV NODE_ENV=development
-
 # Pull the base image
 FROM node:18-alpine
 
