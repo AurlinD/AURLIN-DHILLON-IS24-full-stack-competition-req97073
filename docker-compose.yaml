@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: ./frontend
+      dockerfile: /Dockerfile
+    volumes:
+      - "./frontend:/app"
+      - "/app/node_modules"
+    ports:
+      - 3000:3000 # Ask them what port the frontend should be at
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+  redis:
+    image: "redis:alpine"
