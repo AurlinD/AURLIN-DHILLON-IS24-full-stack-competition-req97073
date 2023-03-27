@@ -4,20 +4,6 @@
 # # sets environment variable for subsequent instruction in build stage
 # ENV NODE_ENV=development
 
-# # sets working directory for all conesecituve commands
-# WORKDIR /app
-
-# # copy files/directories from source host filesystem to a destination in container file system
-# COPY .  .
-
-# RUN npm i
-
-# # communication between person who build image and person who runs container
-# EXPOSE 3000
-
-# # command executable
-# CMD ["npm", "start"] 
-
 # Pull the base image
 FROM node:18-alpine
 
