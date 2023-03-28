@@ -1,5 +1,5 @@
 services:
-  web:
+  frontend:
     build:
       context: ./frontend
       dockerfile: /Dockerfile
@@ -11,5 +11,10 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
 
-  redis:
-    image: "redis:alpine"
+  backend:
+    build:
+      context: ./backend
+      dockerfile: /Dockerfile
+    ports:
+      - 3008:3008 # Ask them what port the backend should be at
+
