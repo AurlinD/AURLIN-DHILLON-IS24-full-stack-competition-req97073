@@ -18,7 +18,7 @@ const db = Array(40)
       .map(() => faker.name.firstName()),
     scrumMasterName: faker.name.firstName(),
     startDate: faker.datatype.datetime(),
-    methodology: faker.word.adjective(),
+    methodology: Math.floor(Math.random() * 2) ? "Agile" : "Waterfall",
   }))
   .reduce((acc, curr) => {
     acc[curr.productId] = curr;
