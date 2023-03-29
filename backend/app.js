@@ -13,7 +13,7 @@ const db = Array(40)
     productId: faker.datatype.uuid(),
     productName: faker.word.noun(),
     productOwnerName: faker.name.firstName(),
-    Developers: Array(Math.floor(Math.random() * 5) + 1)
+    developers: Array(Math.floor(Math.random() * 5) + 1)
       .fill()
       .map(() => faker.name.firstName()),
     scrumMasterName: faker.name.firstName(),
