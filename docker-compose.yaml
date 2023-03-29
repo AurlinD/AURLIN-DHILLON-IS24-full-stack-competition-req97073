@@ -7,7 +7,6 @@ services:
       dockerfile: /Dockerfile
     volumes:
       - "./frontend:/app"
-      - "/app/node_modules"
     ports:
       - 3000:3000 # Ask them what port the frontend should be at
     environment:
