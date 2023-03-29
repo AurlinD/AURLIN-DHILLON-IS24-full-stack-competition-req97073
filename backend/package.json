@@ -4,15 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "faker": "^6.6.6",
-    "lodash": "^4.17.21",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "@faker-js/faker": "^7.6.0"
   }
 }

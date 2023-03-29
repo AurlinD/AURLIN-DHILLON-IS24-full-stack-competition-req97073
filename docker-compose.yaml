@@ -1,5 +1,7 @@
 services:
   frontend:
+    container_name: bcgov-frontend
+    restart: always
     build:
       context: ./frontend
       dockerfile: /Dockerfile
@@ -12,9 +14,13 @@ services:
       - CHOKIDAR_USEPOLLING=true
 
   backend:
+    container_name: bcgov-backend
+    restart: always
     build:
       context: ./backend
       dockerfile: /Dockerfile
+    volumes:
+      - "./backend:/app"
     ports:
       - 3008:3008 # Ask them what port the backend should be at
 
