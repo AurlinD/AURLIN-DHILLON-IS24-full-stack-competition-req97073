@@ -50,7 +50,7 @@ router.get("/:productId", (req, res) => {
   let product = db[req.params.productId];
 
   if (product === undefined) {
-    res.status(404).json({ message: "Cannot find product" });
+    res.status(404).json({ message: "Cannot find productId" });
     return;
   }
   res.json(product);
@@ -62,7 +62,7 @@ router.post("/", (req, res) => {
     productId: req.body.productId,
     productName: req.body.productName,
     productOwnerName: req.body.productOwnerName,
-    Developers: ["Clifford"],
+    developers: req.body.developers,
     scrumMasterName: req.body.scrumMasterName,
     startDate: req.body.startDate,
     methodology: req.body.methodology,
@@ -70,8 +70,30 @@ router.post("/", (req, res) => {
 
   if (db[product.productId]) {
     res.status(400).json({
-      message:
-        "There already exists a productId in the db with the productId you have chosen",
+      message: "productId already exists in the db",
+    });
+    return;
+  }
+
+  db[product.productId] = product;
+  res.status(201).json(product);
+});
+
+// put request
+router.put("/", (req, res) => {
+  const product = {
+    productId: req.body.productId,
+    productName: req.body.productName,
+    productOwnerName: req.body.productOwnerName,
+    developers: req.body.developers,
+    scrumMasterName: req.body.scrumMasterName,
+    startDate: req.body.startDate,
+    methodology: req.body.methodology,
+  };
+
+  if (db[product.productId] === undefined) {
+    res.status(404).json({
+      message: "productId does no exists in the db",
     });
     return;
   }
@@ -82,7 +104,6 @@ router.post("/", (req, res) => {
 
 // delete by ID
 router.delete("/:productId", (req, res) => {
-  console.log(req.params.productId, db[req.params.productId]);
   if (db[req.params.productId] === undefined) {
     res.status(404).json({ message: "productId does not exist in the db" });
     return;
