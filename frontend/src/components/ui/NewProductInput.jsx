@@ -7,6 +7,7 @@ const NewProductInput = ({
   placeholder,
 }) => {
   const onChangeHandler = (val) => {
+    // update the specific product property on input update
     setProduct((prev) => ({
       ...prev,
       [property]: val,
