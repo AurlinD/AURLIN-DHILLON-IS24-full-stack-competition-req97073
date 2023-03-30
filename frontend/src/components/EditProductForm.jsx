@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import NewProductInput from "./ui/NewProductInput";
 import editData from "./api/editData";
 import { useNavigate } from "react-router-dom";
-import searchData from "./api/searchData";
+import getData from "./api/getData";
 
 const EditProductForm = () => {
   const [product, setProduct] = useState({
@@ -49,7 +49,7 @@ const EditProductForm = () => {
     let url = window.location.pathname.split("/"),
       uuid = url[url.length - 1];
 
-    searchData(uuid, setProducts);
+    getData(uuid, setProducts);
   }, []);
 
   useEffect(() => {

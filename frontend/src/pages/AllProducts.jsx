@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import searchData from "../components/api/searchData";
-import searchDataScrumMaster from "../components/api/searchDataScrumMaster";
+import getData from "../components/api/getData";
+import getDataScrumMaster from "../components/api/getDataScrumMaster";
 import editHandler from "../components/helpers/editHandler";
 import deleteData from "../components/api/deleteData";
 
@@ -16,7 +16,7 @@ const AllProducts = () => {
   };
 
   useEffect(() => {
-    searchData(input, setProducts);
+    getData(input, setProducts);
   }, []);
 
   return (
@@ -26,7 +26,7 @@ const AllProducts = () => {
         placeholder="Search Product ID..."
         onChange={(event) => setInput(event.target.value)}
       />
-      <button type="submit" onClick={() => searchData(input, setProducts)}>
+      <button type="submit" onClick={() => getData(input, setProducts)}>
         Search ID
       </button>
       <input
@@ -35,7 +35,7 @@ const AllProducts = () => {
       />
       <button
         type="submit"
-        onClick={() => searchDataScrumMaster(inputScrumMaster, setProducts)}
+        onClick={() => getDataScrumMaster(inputScrumMaster, setProducts)}
       >
         Search Scrum Master
       </button>

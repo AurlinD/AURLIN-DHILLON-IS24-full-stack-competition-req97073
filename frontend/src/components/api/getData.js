@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const searchData = (input, setProducts) => {
+const getData = (input, setProducts) => {
   axios
     .get(`http://localhost:3008/api/${input}`)
     .then((res) => {
@@ -16,4 +16,4 @@ const searchData = (input, setProducts) => {
     });
 };
 
-export default searchData;
+export default getData;
