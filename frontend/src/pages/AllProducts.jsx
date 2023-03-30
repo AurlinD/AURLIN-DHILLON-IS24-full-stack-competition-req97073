@@ -1,60 +1,18 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import searchData from "../components/api/searchData";
+import searchDataScrumMaster from "../components/api/searchDataScrumMaster";
+import editHandler from "../components/api/editHandler";
+import deleteHandler from "../components/api/deleteHandler";
 
-export default function AllProducts() {
+const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const [input, setInput] = useState("");
   const [inputScrumMaster, setInputScrumMaster] = useState("");
   const navigate = useNavigate();
 
-  // const searchData = () => {
-  //   axios
-  //     .get(`http://localhost:3008/api/${input}`)
-  //     .then((res) => {
-  //       if (Array.isArray(res.data)) {
-  //         setProducts(res.data);
-  //       } else {
-  //         setProducts([res.data]);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //       setProducts([]);
-  //     });
-  // };
-
-  const searchDataScrumMaster = () => {
-    axios
-      .get(`http://localhost:3008/api/scrum-master/${inputScrumMaster}`)
-      .then((res) => {
-        setProducts(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-        setProducts([]);
-      });
-  };
-
   const isData = () => {
     return products.length === 0;
-  };
-
-  const editHandler = (product) => {
-    navigate(`/edit-product/${product.productId}`, { replace: true });
-    console.log("edit", product);
-  };
-
-  const deleteHandler = (product) => {
-    axios
-      .delete(`http://localhost:3008/api/delete/${product.productId}`)
-      .then(() => {
-        navigate("/", { replace: true });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
   };
 
   useEffect(() => {
@@ -75,7 +33,10 @@ export default function AllProducts() {
         placeholder="Search Scrum Master..."
         onChange={(event) => setInputScrumMaster(event.target.value)}
       />
-      <button type="submit" onClick={() => searchDataScrumMaster()}>
+      <button
+        type="submit"
+        onClick={() => searchDataScrumMaster(inputScrumMaster, setProducts)}
+      >
         Search Scrum Master
       </button>
       <p>Total results : {products.length}</p>
@@ -92,12 +53,20 @@ export default function AllProducts() {
               <p>Scrum Master Name: {product.scrumMasterName}</p>
               <p>Start Date: {product.startDate}</p>
               <p>Methodology: {product.methodology}</p>
-              <button onClick={() => editHandler(product)}>Edit</button>
-              <button onClick={() => deleteHandler(product)}>Delete</button>
+              <button onClick={() => editHandler(product, navigate)}>
+                Edit
+              </button>
+              <button
+                onClick={() => deleteHandler(product, input, setProducts)}
+              >
+                Delete
+              </button>
             </div>
           );
         })
       )}
     </div>
   );
-}
+};
+
+export default AllProducts;

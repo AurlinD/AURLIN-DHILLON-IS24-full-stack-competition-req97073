@@ -3,7 +3,7 @@ import NewProductInput from "./ui/NewProductInput";
 import addProductHandler from "./api/addProductHandler";
 import { useNavigate } from "react-router-dom";
 
-const NewProductForm = () => {
+const EditProductForm = () => {
   const [product, setProduct] = useState({
     productId: "",
     productName: "",
@@ -134,4 +134,4 @@ const NewProductForm = () => {
   );
 };
 
-export default NewProductForm;
+export default EditProductForm;

@@ -3,7 +3,7 @@ import AllProducts from "./pages/AllProducts";
 import NewProduct from "./pages/NewProduct";
 import EditProduct from "./pages/EditProduct";
 
-export default function App() {
+const App = () => {
   return (
     <div>
       <BrowserRouter>
@@ -15,4 +15,6 @@ export default function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
+
+export default App;
