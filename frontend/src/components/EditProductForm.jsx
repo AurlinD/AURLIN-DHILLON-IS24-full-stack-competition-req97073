@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NewProductInput from "./ui/NewProductInput";
 import addProductHandler from "./api/addProductHandler";
 import { useNavigate } from "react-router-dom";
+import searchData from "./api/searchData";
 
 const EditProductForm = () => {
   const [product, setProduct] = useState({
@@ -17,7 +18,7 @@ const EditProductForm = () => {
     startDate: "",
     methodology: "",
   });
-
+  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
   const submitHandler = (event) => {
@@ -44,8 +45,30 @@ const EditProductForm = () => {
     addProductHandler(newProduct, navigate);
   };
 
+  useEffect(() => {
+    let url = window.location.pathname.split("/"),
+      uuid = url[url.length - 1];
+
+    searchData(uuid, setProducts);
+  }, []);
+
+  useEffect(() => {
+    if (products.length === 0) return;
+    let developers = products[0].developers,
+      temp = { ...products[0] };
+
+    developers.forEach((curr, index) => {
+      temp[`developer${index + 1}`] = curr;
+    });
+
+    setProduct({ ...temp });
+  }, [products]);
+
   return (
     <div>
+      <button onClick={() => navigate("/", { replace: true })}>
+        Go Back To List View
+      </button>
       <form onSubmit={(event) => submitHandler(event)}>
         <NewProductInput
           isRequired={true}
@@ -126,7 +149,7 @@ const EditProductForm = () => {
           productValue={product.methodology}
           placeholder="Agile/Waterfall"
         />
-        <button>Add Product</button>
+        <button>Edit Product</button>
       </form>
     </div>
   );
