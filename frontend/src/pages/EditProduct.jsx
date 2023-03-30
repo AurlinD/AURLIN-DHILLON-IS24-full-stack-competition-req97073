@@ -1,6 +1,6 @@
 import EditProductForm from "../components/EditProductForm";
 
-const NewProduct = () => {
+const EditProduct = () => {
   return (
     <section>
       <h1>Edit Product</h1>
@@ -9,4 +9,4 @@ const NewProduct = () => {
   );
 };
 
-export default NewProduct;
+export default EditProduct;

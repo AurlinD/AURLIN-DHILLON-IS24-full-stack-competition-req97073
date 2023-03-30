@@ -31,8 +31,6 @@ const EditProductForm = () => {
       product.developer5,
     ].filter(Boolean);
 
-    console.log(developers);
-
     const newProduct = {
       productId: product.productId,
       productName: product.productName,

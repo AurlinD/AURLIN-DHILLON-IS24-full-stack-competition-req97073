@@ -1,7 +1,7 @@
 import NewProductForm from "../components/NewProductForm";
 import { useNavigate } from "react-router-dom";
 
-export default function NewProduct() {
+const NewProduct = () => {
   const navigate = useNavigate();
 
   return (
@@ -13,4 +13,6 @@ export default function NewProduct() {
       <NewProductForm />
     </section>
   );
-}
+};
+
+export default NewProduct;
