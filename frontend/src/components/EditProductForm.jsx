@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import editData from "./api/editData";
 import { useNavigate } from "react-router-dom";
 import getData from "./api/getData";
 import Forms from "../components/ui/Forms";
+import submitHandler from "./helpers/submitHandler";
 
 const EditProductForm = () => {
   const [product, setProduct] = useState({
@@ -20,30 +20,6 @@ const EditProductForm = () => {
   });
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
-
-  const submitHandler = (event) => {
-    event.preventDefault();
-
-    const developers = [
-      product.developer1,
-      product.developer2,
-      product.developer3,
-      product.developer4,
-      product.developer5,
-    ].filter(Boolean);
-
-    const newProduct = {
-      productId: product.productId,
-      productName: product.productName,
-      productOwnerName: product.productOwnerName,
-      developers: developers,
-      scrumMasterName: product.scrumMasterName,
-      startDate: product.startDate,
-      methodology: product.methodology,
-    };
-
-    editData(newProduct, navigate);
-  };
 
   useEffect(() => {
     let url = window.location.pathname.split("/"),
@@ -67,7 +43,9 @@ const EditProductForm = () => {
   return (
     <div>
       <Forms
-        submitHandler={submitHandler}
+        submitHandler={(event) =>
+          submitHandler(event, product, "edit", navigate)
+        }
         product={product}
         setProduct={setProduct}
         buttonText="Edit Product"
