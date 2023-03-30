@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import searchData from "../components/api/searchData";
 
 export default function AllProducts() {
   const [products, setProducts] = useState([]);
@@ -8,21 +9,21 @@ export default function AllProducts() {
   const [inputScrumMaster, setInputScrumMaster] = useState("");
   const navigate = useNavigate();
 
-  const searchData = () => {
-    axios
-      .get(`http://localhost:3008/api/${input}`)
-      .then((res) => {
-        if (Array.isArray(res.data)) {
-          setProducts(res.data);
-        } else {
-          setProducts([res.data]);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        setProducts([]);
-      });
-  };
+  // const searchData = () => {
+  //   axios
+  //     .get(`http://localhost:3008/api/${input}`)
+  //     .then((res) => {
+  //       if (Array.isArray(res.data)) {
+  //         setProducts(res.data);
+  //       } else {
+  //         setProducts([res.data]);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       setProducts([]);
+  //     });
+  // };
 
   const searchDataScrumMaster = () => {
     axios
@@ -57,7 +58,7 @@ export default function AllProducts() {
   };
 
   useEffect(() => {
-    searchData();
+    searchData(input, setProducts);
   }, []);
 
   return (
@@ -67,7 +68,7 @@ export default function AllProducts() {
         placeholder="Search Product ID..."
         onChange={(event) => setInput(event.target.value)}
       />
-      <button type="submit" onClick={() => searchData()}>
+      <button type="submit" onClick={() => searchData(input, setProducts)}>
         Search ID
       </button>
       <input
