@@ -1,29 +1,10 @@
 require("dotenv").config();
+const db = require("./data");
 
 const express = require("express");
 const app = express();
-const { faker } = require("@faker-js/faker");
 const router = express.Router();
 const cors = require("cors");
-
-// initialize mock data array
-const db = Array(40)
-  .fill()
-  .map(() => ({
-    productId: faker.datatype.uuid(),
-    productName: faker.word.noun(),
-    productOwnerName: faker.name.firstName(),
-    developers: Array(Math.floor(Math.random() * 5) + 1)
-      .fill()
-      .map(() => faker.name.firstName()),
-    scrumMasterName: faker.name.firstName(),
-    startDate: faker.datatype.datetime(),
-    methodology: Math.floor(Math.random() * 2) ? "Agile" : "Waterfall",
-  }))
-  .reduce((acc, curr) => {
-    acc[curr.productId] = curr;
-    return acc;
-  }, {});
 
 // do this better
 app.use(cors());
@@ -54,6 +35,20 @@ router.get("/:productId", (req, res) => {
     return;
   }
   res.json(product);
+});
+
+// get specific scrum master products
+router.get("/scrum-master/:scrumMasterName", (req, res) => {
+  let name = req.params.scrumMasterName.replace("-", " ");
+  let scrumMasterProducts = Object.values(db).filter((product) => {
+    return product.scrumMasterName === name;
+  });
+
+  if (scrumMasterProducts.length === 0) {
+    res.status(404).json({ message: "Cannot find Scrum Master Products" });
+    return;
+  }
+  res.json(scrumMasterProducts);
 });
 
 // post request
@@ -103,7 +98,7 @@ router.put("/", (req, res) => {
 });
 
 // delete by ID
-router.delete("/:productId", (req, res) => {
+router.delete("/delete/:productId", (req, res) => {
   if (db[req.params.productId] === undefined) {
     res.status(404).json({ message: "productId does not exist in the db" });
     return;
