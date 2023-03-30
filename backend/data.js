@@ -13,7 +13,7 @@ module.exports = {
     productName: "negotiation",
     productOwnerName: "Juan Roob",
     developers: ["Margaret Labadie"],
-    scrumMasterName: "Gustavo Murazik",
+    scrumMasterName: "Nadine Cormier",
     startDate: "1995/01/12",
     methodology: "Agile",
   },
