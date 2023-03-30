@@ -6,7 +6,6 @@ const NewProductInput = ({
   productValue,
   placeholder,
 }) => {
-  //tests
   const onChangeHandler = (val) => {
     setProduct((prev) => ({
       ...prev,

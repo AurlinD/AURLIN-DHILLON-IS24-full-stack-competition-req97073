@@ -18,6 +18,9 @@ export default function NewProduct() {
 
   return (
     <section>
+      <button onClick={() => navigate("/", { replace: true })}>
+        Go Back To List View
+      </button>
       <h1>Add New Product</h1>
       <NewProductForm onAddProduct={addProductHandler} />
     </section>

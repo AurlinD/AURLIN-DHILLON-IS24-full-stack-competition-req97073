@@ -45,7 +45,9 @@ router.get("/scrum-master/:scrumMasterName", (req, res) => {
   });
 
   if (scrumMasterProducts.length === 0) {
-    res.status(404).json({ message: "Cannot find Scrum Master Products" });
+    res
+      .status(404)
+      .json({ message: "Cannot find Scrum Master Products", name });
     return;
   }
   res.json(scrumMasterProducts);

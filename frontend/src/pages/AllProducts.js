@@ -26,13 +26,9 @@ export default function AllProducts() {
 
   const searchDataScrumMaster = () => {
     axios
-      .get(`http://localhost:3008/api/${input}`)
+      .get(`http://localhost:3008/api/scrum-master/${inputScrumMaster}`)
       .then((res) => {
-        if (Array.isArray(res.data)) {
-          setProducts(res.data);
-        } else {
-          setProducts([res.data]);
-        }
+        setProducts(res.data);
       })
       .catch((err) => {
         console.error(err);
@@ -52,10 +48,12 @@ export default function AllProducts() {
   const deleteHandler = (product) => {
     axios
       .delete(`http://localhost:3008/api/delete/${product.productId}`)
+      .then(() => {
+        navigate("/", { replace: true });
+      })
       .catch((err) => {
         console.error(err);
       });
-    console.log("delete", product);
   };
 
   useEffect(() => {
@@ -64,19 +62,20 @@ export default function AllProducts() {
 
   return (
     <div>
+      <button onClick={() => navigate("/new-product")}>Add New Product</button>
       <input
-        placeholder="Search Product..."
+        placeholder="Search Product ID..."
         onChange={(event) => setInput(event.target.value)}
       />
       <button type="submit" onClick={() => searchData()}>
-        Search
+        Search ID
       </button>
       <input
         placeholder="Search Scrum Master..."
         onChange={(event) => setInputScrumMaster(event.target.value)}
       />
-      <button type="submit" onClick={() => searchData()}>
-        Search
+      <button type="submit" onClick={() => searchDataScrumMaster()}>
+        Search Scrum Master
       </button>
       <p>Total results : {products.length}</p>
       {isData() ? (
