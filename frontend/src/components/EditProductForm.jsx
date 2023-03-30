@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import NewProductInput from "./ui/NewProductInput";
-import addProductHandler from "./api/addProductHandler";
+import postData from "./api/postData";
 import { useNavigate } from "react-router-dom";
 import searchData from "./api/searchData";
 
@@ -42,7 +42,7 @@ const EditProductForm = () => {
       methodology: product.methodology,
     };
 
-    addProductHandler(newProduct, navigate);
+    postData(newProduct, navigate);
   };
 
   useEffect(() => {

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import searchData from "../components/api/searchData";
 import searchDataScrumMaster from "../components/api/searchDataScrumMaster";
-import editHandler from "../components/api/editHandler";
-import deleteHandler from "../components/api/deleteHandler";
+import editHandler from "../components/helpers/editHandler";
+import deleteData from "../components/api/deleteData";
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -56,9 +56,7 @@ const AllProducts = () => {
               <button onClick={() => editHandler(product, navigate)}>
                 Edit
               </button>
-              <button
-                onClick={() => deleteHandler(product, input, setProducts)}
-              >
+              <button onClick={() => deleteData(product, input, setProducts)}>
                 Delete
               </button>
             </div>

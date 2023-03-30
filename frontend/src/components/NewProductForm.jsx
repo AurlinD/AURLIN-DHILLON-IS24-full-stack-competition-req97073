@@ -1,6 +1,6 @@
 import { useState } from "react";
 import NewProductInput from "./ui/NewProductInput";
-import addProductHandler from "./api/addProductHandler";
+import postData from "./api/postData";
 import { useNavigate } from "react-router-dom";
 
 const NewProductForm = () => {
@@ -31,8 +31,6 @@ const NewProductForm = () => {
       product.developer5,
     ].filter(Boolean);
 
-    console.log(developers);
-
     const newProduct = {
       productId: product.productId,
       productName: product.productName,
@@ -43,7 +41,7 @@ const NewProductForm = () => {
       methodology: product.methodology,
     };
 
-    addProductHandler(newProduct, navigate);
+    postData(newProduct, navigate);
   };
 
   return (

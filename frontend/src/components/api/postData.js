@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const addProductHandler = (newProduct, navigate) => {
+const postData = (newProduct, navigate) => {
   axios
     .post("http://localhost:3008/api/", newProduct)
-    .then((res) => {
+    .then(() => {
       navigate("/", { replace: true });
     })
     .catch((err) => {
@@ -11,4 +11,4 @@ const addProductHandler = (newProduct, navigate) => {
     });
 };
 
-export default addProductHandler;
+export default postData;

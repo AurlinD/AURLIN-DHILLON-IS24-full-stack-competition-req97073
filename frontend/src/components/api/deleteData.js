@@ -1,7 +1,7 @@
 import axios from "axios";
 import searchData from "./searchData";
 
-const deleteHandler = (product, input, setProducts) => {
+const deleteData = (product, input, setProducts) => {
   axios
     .delete(`http://localhost:3008/api/delete/${product.productId}`)
     .then(() => {
@@ -12,4 +12,4 @@ const deleteHandler = (product, input, setProducts) => {
     });
 };
 
-export default deleteHandler;
+export default deleteData;
