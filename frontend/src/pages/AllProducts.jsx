@@ -49,7 +49,7 @@ const AllProducts = () => {
               <h2>Product Name: {product.productName}</h2>
               <h2>Product Id: {product.productId}</h2>
               <p>Product Owner Name: {product.productOwnerName}</p>
-              <p>Developers: {product.developers}</p>
+              <p>Developers: {product.developers.join(" , ")}</p>
               <p>Scrum Master Name: {product.scrumMasterName}</p>
               <p>Start Date: {product.startDate}</p>
               <p>Methodology: {product.methodology}</p>
