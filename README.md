@@ -21,4 +21,4 @@ Health URL is http://localhost:3000/api/healthcheck
 1. Clone repository.
 2. CD into frontend subfolder, run `npm install`
 3. CD into backend subfolder, run `npm install`
-4. Run `docker-compose up` in main subdirectory
+4. Run `docker-compose up` in main directory where docker-compose.yaml is present
