@@ -1,6 +1,10 @@
 import axios from "axios";
 
-// GET API
+/**
+ *  GET request
+ * @param {*} input
+ * @param {*} setProducts
+ */
 const getData = (input, setProducts) => {
   axios
     .get(`http://localhost:3008/api/${input}`)

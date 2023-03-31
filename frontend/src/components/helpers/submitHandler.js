@@ -1,6 +1,14 @@
 import editData from "../api/editData";
 import postData from "../api/postData";
 
+/**
+ * handles edit/post depending on apiFunction string input. creates a new product and
+ * makes the appropriate API request to edit/add to db.
+ * @param {*} event
+ * @param {*} product
+ * @param {*} apiFunction
+ * @param {*} navigate
+ */
 const submitHandler = (event, product, apiFunction, navigate) => {
   event.preventDefault();
 

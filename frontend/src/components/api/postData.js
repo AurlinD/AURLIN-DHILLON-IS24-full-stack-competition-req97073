@@ -1,6 +1,10 @@
 import axios from "axios";
 
-// POST API
+/**
+ * POST request
+ * @param {*} newProduct
+ * @param {*} navigate
+ */
 const postData = (newProduct, navigate) => {
   axios
     .post("http://localhost:3008/api/", newProduct)

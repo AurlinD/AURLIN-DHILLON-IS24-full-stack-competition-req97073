@@ -44,6 +44,7 @@ router.get("/scrum-master/:scrumMasterName", (req, res) => {
     return product.scrumMasterName === name;
   });
 
+  // verify scrumMasterProduct is returning a list
   if (scrumMasterProducts.length === 0) {
     res
       .status(404)
@@ -65,6 +66,7 @@ router.post("/", (req, res) => {
     methodology: req.body.methodology,
   };
 
+  // verify productId doesn't exists in database
   if (db[product.productId]) {
     res.status(400).json({
       message: "productId already exists in the db",
@@ -88,6 +90,7 @@ router.put("/", (req, res) => {
     methodology: req.body.methodology,
   };
 
+  //verify productId exists in database
   if (db[product.productId] === undefined) {
     res.status(404).json({
       message: "productId does no exists in the db",
@@ -101,6 +104,7 @@ router.put("/", (req, res) => {
 
 // delete by ID
 router.delete("/delete/:productId", (req, res) => {
+  // verify productId exists in database
   if (db[req.params.productId] === undefined) {
     res.status(404).json({ message: "productId does not exist in the db" });
     return;

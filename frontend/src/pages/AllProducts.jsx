@@ -11,6 +11,10 @@ const AllProducts = () => {
   const [inputScrumMaster, setInputScrumMaster] = useState("");
   const navigate = useNavigate();
 
+  /**
+   *
+   * @returns boolean
+   */
   const isData = () => {
     return products.length === 0;
   };

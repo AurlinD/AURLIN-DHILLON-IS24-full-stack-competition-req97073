@@ -1,6 +1,10 @@
 import axios from "axios";
 
-// PUT API
+/**
+ * PUT request
+ * @param {*} updatedProduct
+ * @param {*} navigate
+ */
 const editData = (updatedProduct, navigate) => {
   axios
     .put("http://localhost:3008/api/", updatedProduct)

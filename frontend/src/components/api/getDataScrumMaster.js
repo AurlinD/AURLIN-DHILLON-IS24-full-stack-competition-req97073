@@ -1,6 +1,10 @@
 import axios from "axios";
 
-// GET API for Scrum Master
+/**
+ * GET request for Scrum Master Name
+ * @param {*} inputScrumMaster
+ * @param {*} setProducts
+ */
 const getDataScrumMaster = (inputScrumMaster, setProducts) => {
   axios
     .get(`http://localhost:3008/api/scrum-master/${inputScrumMaster}`)
