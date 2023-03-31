@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import getData from "./api/getData";
+import getProducts from "./api/getProducts";
 import Forms from "../components/ui/Forms";
 import submitHandler from "./helpers/submitHandler";
 
@@ -25,7 +25,7 @@ const EditProductForm = () => {
     let url = window.location.pathname.split("/"),
       uuid = url[url.length - 1];
 
-    getData(uuid, setProducts);
+    getProducts(uuid, setProducts);
   }, []);
 
   useEffect(() => {

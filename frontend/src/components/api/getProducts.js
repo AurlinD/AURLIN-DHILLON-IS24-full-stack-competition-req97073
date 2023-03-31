@@ -5,7 +5,7 @@ import axios from "axios";
  * @param {*} input
  * @param {*} setProducts
  */
-const getData = (input, setProducts) => {
+const getProducts = (input, setProducts) => {
   axios
     .get(`http://localhost:3008/api/${input}`)
     .then((res) => {
@@ -22,4 +22,4 @@ const getData = (input, setProducts) => {
     });
 };
 
-export default getData;
+export default getProducts;

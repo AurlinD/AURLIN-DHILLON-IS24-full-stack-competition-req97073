@@ -1,5 +1,5 @@
-import editData from "../api/editData";
-import postData from "../api/postData";
+import updateProduct from "../api/updateProduct";
+import addProduct from "../api/addProduct";
 
 /**
  * handles edit/post depending on apiFunction string input. creates a new product and
@@ -30,9 +30,9 @@ const submitHandler = (event, product, apiFunction, navigate) => {
     methodology: product.methodology,
   };
 
-  if (apiFunction === "edit") editData(newProduct, navigate);
+  if (apiFunction === "edit") updateProduct(newProduct, navigate);
 
-  if (apiFunction === "post") postData(newProduct, navigate);
+  if (apiFunction === "post") addProduct(newProduct, navigate);
 };
 
 export default submitHandler;

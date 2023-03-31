@@ -5,7 +5,7 @@ import axios from "axios";
  * @param {*} updatedProduct
  * @param {*} navigate
  */
-const editData = (updatedProduct, navigate) => {
+const updateProduct = (updatedProduct, navigate) => {
   axios
     .put("http://localhost:3008/api/", updatedProduct)
     .then(() => {
@@ -17,4 +17,4 @@ const editData = (updatedProduct, navigate) => {
     });
 };
 
-export default editData;
+export default updateProduct;

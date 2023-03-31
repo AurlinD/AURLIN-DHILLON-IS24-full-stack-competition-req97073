@@ -5,7 +5,7 @@ import axios from "axios";
  * @param {*} newProduct
  * @param {*} navigate
  */
-const postData = (newProduct, navigate) => {
+const addProduct = (newProduct, navigate) => {
   axios
     .post("http://localhost:3008/api/", newProduct)
     .then(() => {
@@ -16,4 +16,4 @@ const postData = (newProduct, navigate) => {
     });
 };
 
-export default postData;
+export default addProduct;

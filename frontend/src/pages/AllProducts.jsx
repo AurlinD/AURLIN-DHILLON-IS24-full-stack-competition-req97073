@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import getData from "../components/api/getData";
+import getProducts from "../components/api/getProducts";
 import ProductList from "../components/ui/ProductList";
 
 const AllProducts = () => {
@@ -10,7 +10,7 @@ const AllProducts = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getData(input, setProducts);
+    getProducts(input, setProducts);
   }, []);
 
   return (

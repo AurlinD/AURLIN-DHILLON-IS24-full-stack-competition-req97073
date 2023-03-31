@@ -1,5 +1,5 @@
 import getProductsScrumMaster from "../api/getProductsScrumMaster";
-import getData from "../api/getData";
+import getProducts from "../api/getProducts";
 import List from "./List";
 import isData from "../helpers/isData";
 
@@ -19,7 +19,7 @@ const ProductList = ({
         placeholder="Search Product ID..."
         onChange={(event) => setInput(event.target.value)}
       />
-      <button type="submit" onClick={() => getData(input, setProducts)}>
+      <button type="submit" onClick={() => getProducts(input, setProducts)}>
         Search ID
       </button>
       <input

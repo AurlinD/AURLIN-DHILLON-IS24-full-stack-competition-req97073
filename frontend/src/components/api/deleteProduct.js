@@ -1,5 +1,5 @@
 import axios from "axios";
-import getData from "./getData";
+import getProducts from "./getProducts";
 
 /**
  * DELETE request
@@ -7,16 +7,16 @@ import getData from "./getData";
  * @param {*} input
  * @param {*} setProducts
  */
-const deleteData = (product, input, setProducts) => {
+const deleteProduct = (product, input, setProducts) => {
   axios
     .delete(`http://localhost:3008/api/delete/${product.productId}`)
     .then(() => {
       // after successful deletion, call GET API to update the list.
-      getData(input, setProducts);
+      getProducts(input, setProducts);
     })
     .catch((err) => {
       console.error(err);
     });
 };
 
-export default deleteData;
+export default deleteProduct;
