@@ -5,7 +5,7 @@ import axios from "axios";
  * @param {*} inputScrumMaster
  * @param {*} setProducts
  */
-const getDataScrumMaster = (inputScrumMaster, setProducts) => {
+const getProductsScrumMaster = (inputScrumMaster, setProducts) => {
   axios
     .get(`http://localhost:3008/api/scrum-master/${inputScrumMaster}`)
     .then((res) => {
@@ -17,4 +17,4 @@ const getDataScrumMaster = (inputScrumMaster, setProducts) => {
     });
 };
 
-export default getDataScrumMaster;
+export default getProductsScrumMaster;

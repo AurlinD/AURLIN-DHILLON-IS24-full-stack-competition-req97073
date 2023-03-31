@@ -1,4 +1,4 @@
-import getDataScrumMaster from "../api/getDataScrumMaster";
+import getProductsScrumMaster from "../api/getProductsScrumMaster";
 import getData from "../api/getData";
 import List from "./List";
 import isData from "../helpers/isData";
@@ -28,7 +28,7 @@ const ProductList = ({
       />
       <button
         type="submit"
-        onClick={() => getDataScrumMaster(inputScrumMaster, setProducts)}
+        onClick={() => getProductsScrumMaster(inputScrumMaster, setProducts)}
       >
         Search Scrum Master
       </button>
