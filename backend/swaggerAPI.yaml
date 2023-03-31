@@ -1,0 +1,132 @@
+openapi: 3.0.0
+info:
+  title: code challenge
+  description: APIs for products
+  version: 0.1.9
+
+paths:
+  /products:
+    get:
+      tags:
+        - Products
+      summary: Get all products
+      operationId: getProducts
+      responses:
+        "200":
+          description: Products found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Products"
+    post:
+      tags:
+        - Products
+      summary: Add product
+      operationId: addProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Products"
+      responses:
+        "201":
+          description: New product created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Products"
+        "404":
+          description: productId does not exists in the db
+  /products/{productId}:
+    put:
+      tags:
+        - Products
+      summary: update product with product ID
+      operationId: updateProduct
+      parameters:
+        - in: path
+          name: productId
+          description: ID of the product to replace.
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Products"
+      responses:
+        "201":
+          description: Product updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Products"
+        "404":
+          description: productId does not exist in the db
+
+    delete:
+      tags:
+        - Products
+      summary: delete product by id
+      operationId: deleteProduct
+      parameters:
+        - in: path
+          name: productId
+          description: delete product by id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Product removed successfully.
+        "404":
+          description: Product not found.
+          content:
+            text/plain:
+              schema:
+                type: integer
+                example: productId does not exist in the db
+
+components:
+  schemas:
+    Products:
+      type: object
+      required:
+        - productName
+        - productOwnerName
+        - developers
+        - scrumMasterName
+        - startDate
+        - methodology
+      properties:
+        productId:
+          type: integer
+          description: UUID for each product
+          example: "1"
+        productOwnerName:
+          type: string
+          description: Owner of product
+          example: Ernest Wiegand
+        developers:
+          type: array
+          items:
+            type: string
+          description: Developers working on project
+          example: ["Delores Collier", "Margaret Labadie", "Jermaine Padberg"]
+        scrumMasterName:
+          type: string
+          description: leads scrums in project
+          example: Nadine Cormier
+        startDate:
+          type: string
+          description: Starting date of the project
+          example: "1995/01/12"
+        methodology:
+          type: string
+          description: Development principles
+          example: "Waterfall"
