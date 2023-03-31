@@ -1,7 +1,7 @@
 import axios from "axios";
 
 /**
- *  GET request
+ * GET request
  * @param {*} input
  * @param {*} setProducts
  */
