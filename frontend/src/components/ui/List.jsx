@@ -2,6 +2,7 @@ import editHandler from "../helpers/editHandler";
 import deleteProduct from "../api/deleteProduct";
 
 const List = ({ products, setProducts, input, navigate }) => {
+  // map over products array to display list for each product
   return products.map((product) => {
     return (
       <div key={product.productId}>
