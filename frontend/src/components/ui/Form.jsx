@@ -1,8 +1,20 @@
 import NewProductInput from "./NewProductInput";
+import submitHandler from "../helpers/submitHandler";
 
-const Forms = ({ submitHandler, product, setProduct, buttonText }) => {
+const Form = ({
+  product,
+  setProduct,
+  buttonText,
+  setError,
+  navigate,
+  apiRequest,
+}) => {
   return (
-    <form onSubmit={(event) => submitHandler(event)}>
+    <form
+      onSubmit={(event) =>
+        submitHandler(event, product, apiRequest, navigate, setError)
+      }
+    >
       <NewProductInput
         isRequired={true}
         label="Product Id"
@@ -87,4 +99,4 @@ const Forms = ({ submitHandler, product, setProduct, buttonText }) => {
   );
 };
 
-export default Forms;
+export default Form;

@@ -8,8 +8,9 @@ import addProduct from "../api/addProduct";
  * @param {*} product
  * @param {*} apiFunction
  * @param {*} navigate
+ * @param {*} setError
  */
-const submitHandler = (event, product, apiFunction, navigate) => {
+const submitHandler = (event, product, apiFunction, navigate, setError) => {
   event.preventDefault();
 
   const developers = [
@@ -30,9 +31,9 @@ const submitHandler = (event, product, apiFunction, navigate) => {
     methodology: product.methodology,
   };
 
-  if (apiFunction === "edit") updateProduct(newProduct, navigate);
+  if (apiFunction === "edit") updateProduct(newProduct, navigate, setError);
 
-  if (apiFunction === "post") addProduct(newProduct, navigate);
+  if (apiFunction === "post") addProduct(newProduct, navigate, setError);
 };
 
 export default submitHandler;

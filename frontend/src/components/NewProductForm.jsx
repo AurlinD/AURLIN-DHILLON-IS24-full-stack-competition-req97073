@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Forms from "../components/ui/Forms";
-import submitHandler from "./helpers/submitHandler";
+import Form from "./ui/Form";
 
 const NewProductForm = () => {
   const [product, setProduct] = useState({
@@ -17,19 +16,26 @@ const NewProductForm = () => {
     startDate: "",
     methodology: "",
   });
-
+  const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  const ifError = () => {
+    if (error.length !== "") {
+      return <div>{error}</div>;
+    }
+  };
 
   return (
     <div>
-      <Forms
-        submitHandler={(event) =>
-          submitHandler(event, product, "post", navigate)
-        }
+      <Form
         product={product}
         setProduct={setProduct}
         buttonText="Add Product"
+        navigate={navigate}
+        apiRequest="post"
+        setError={setError}
       />
+      {ifError()}
     </div>
   );
 };

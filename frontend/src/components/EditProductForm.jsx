@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import getProducts from "./api/getProducts";
-import Forms from "../components/ui/Forms";
-import submitHandler from "./helpers/submitHandler";
+import Form from "../components/ui/Form";
 
 const EditProductForm = () => {
   const productId = useParams();
@@ -19,6 +18,7 @@ const EditProductForm = () => {
     startDate: "",
     methodology: "",
   });
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const formatProducts = (products) => {
@@ -38,6 +38,12 @@ const EditProductForm = () => {
     }
   };
 
+  const ifError = () => {
+    if (error.length !== "") {
+      return <div>{error}</div>;
+    }
+  };
+
   useEffect(() => {
     let uuid = productId.productId;
 
@@ -46,14 +52,15 @@ const EditProductForm = () => {
 
   return (
     <div>
-      <Forms
-        submitHandler={(event) =>
-          submitHandler(event, inputProduct, "edit", navigate)
-        }
+      <Form
         product={inputProduct}
         setProduct={setInputProduct}
         buttonText="Edit Product"
+        setError={setError}
+        apiRequest="edit"
+        navigate={navigate}
       />
+      {ifError()}
     </div>
   );
 };

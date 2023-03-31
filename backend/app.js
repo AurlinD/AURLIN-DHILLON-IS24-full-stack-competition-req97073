@@ -93,7 +93,7 @@ router.put("/products/:productId", (req, res) => {
   //verify productId exists in database
   if (db[product.productId] === undefined) {
     res.status(404).json({
-      message: "productId does no exists in the db",
+      message: "productId does not exists in the db",
     });
     return;
   }
