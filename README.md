@@ -4,7 +4,9 @@
 ## Notes
 
 Frontend: React.
-Backend: Nodejs, express.
+
+Backend: Nodejs, Express.
+
 Virtualization: Docker.
 
 There is a deprecation warning that is still pending to be fixed from my research after running the Docker compile. 
