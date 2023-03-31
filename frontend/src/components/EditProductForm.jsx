@@ -21,6 +21,10 @@ const EditProductForm = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  /**
+   * making product object from GET call morph into inputProduct object
+   * @param {*} products
+   */
   const formatProducts = (products) => {
     if (Array.isArray(products) && products.length === 1) {
       const { developers, ...rest } = products[0];
