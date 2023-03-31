@@ -1,7 +1,7 @@
 import getProductsScrumMaster from "../api/getProductsScrumMaster";
 import getProducts from "../api/getProducts";
 import List from "./List";
-import isData from "../helpers/isData";
+import isProducts from "../helpers/isProducts";
 
 const ProductList = ({
   products,
@@ -33,7 +33,7 @@ const ProductList = ({
         Search Scrum Master
       </button>
       <p>Total results : {products.length}</p>
-      {isData(products) ? (
+      {isProducts(products) ? (
         <div>No products found</div>
       ) : (
         <List

@@ -7,7 +7,7 @@ import axios from "axios";
  */
 const addProduct = (newProduct, navigate) => {
   axios
-    .post("http://localhost:3008/api/", newProduct)
+    .post("http://localhost:3008/api/products", newProduct)
     .then(() => {
       navigate("/", { replace: true });
     })

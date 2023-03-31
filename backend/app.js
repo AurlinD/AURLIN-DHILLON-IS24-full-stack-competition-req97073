@@ -22,12 +22,12 @@ router.get("/healthcheck", (req, res) => {
 });
 
 // get all
-router.get("/", (req, res) => {
+router.get("/products", (req, res) => {
   res.json(Object.values(db));
 });
 
 // get specific
-router.get("/:productId", (req, res) => {
+router.get("/products/:productId", (req, res) => {
   let product = db[req.params.productId];
 
   if (product === undefined) {
@@ -38,7 +38,7 @@ router.get("/:productId", (req, res) => {
 });
 
 // get specific scrum master products
-router.get("/scrum-master/:scrumMasterName", (req, res) => {
+router.get("/products/scrum-master/:scrumMasterName", (req, res) => {
   let name = req.params.scrumMasterName.replace("-", " ");
   let scrumMasterProducts = Object.values(db).filter((product) => {
     return product.scrumMasterName === name;
@@ -55,7 +55,7 @@ router.get("/scrum-master/:scrumMasterName", (req, res) => {
 });
 
 // post request
-router.post("/", (req, res) => {
+router.post("/products", (req, res) => {
   const product = {
     productId: req.body.productId,
     productName: req.body.productName,
@@ -79,7 +79,7 @@ router.post("/", (req, res) => {
 });
 
 // put request
-router.put("/", (req, res) => {
+router.put("/products/:productId", (req, res) => {
   const product = {
     productId: req.body.productId,
     productName: req.body.productName,
@@ -103,7 +103,7 @@ router.put("/", (req, res) => {
 });
 
 // delete by ID
-router.delete("/delete/:productId", (req, res) => {
+router.delete("/products/:productId", (req, res) => {
   // verify productId exists in database
   if (db[req.params.productId] === undefined) {
     res.status(404).json({ message: "productId does not exist in the db" });

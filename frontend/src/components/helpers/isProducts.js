@@ -2,8 +2,8 @@
  * Check if data lists empty or not
  * @returns boolean
  */
-const isData = (products) => {
+const isProducts = (products) => {
   return products.length === 0;
 };
 
-export default isData;
+export default isProducts;

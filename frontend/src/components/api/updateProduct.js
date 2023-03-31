@@ -7,7 +7,10 @@ import axios from "axios";
  */
 const updateProduct = (updatedProduct, navigate) => {
   axios
-    .put("http://localhost:3008/api/", updatedProduct)
+    .put(
+      `http://localhost:3008/api/products/${updatedProduct.productId}`,
+      updatedProduct
+    )
     .then(() => {
       // navigate to landing page after success
       navigate("/", { replace: true });
