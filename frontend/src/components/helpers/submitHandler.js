@@ -8,17 +8,9 @@ import addProduct from "../api/addProduct";
  * @param {*} product
  * @param {*} apiRequest
  * @param {*} navigate
- * @param {*} setError
  * @param {*} productId
  */
-const submitHandler = (
-  event,
-  product,
-  apiRequest,
-  navigate,
-  setError,
-  productId
-) => {
+const submitHandler = (event, product, apiRequest, navigate, productId) => {
   event.preventDefault();
 
   const developers = [
@@ -30,7 +22,6 @@ const submitHandler = (
   ].filter(Boolean);
 
   const newProduct = {
-    productId: product.productId,
     productName: product.productName,
     productOwnerName: product.productOwnerName,
     developers: developers,
@@ -39,10 +30,9 @@ const submitHandler = (
     methodology: product.methodology,
   };
 
-  if (apiRequest === "edit")
-    updateProduct(newProduct, navigate, setError, productId);
+  if (apiRequest === "edit") updateProduct(newProduct, navigate, productId);
 
-  if (apiRequest === "post") addProduct(newProduct, navigate, setError);
+  if (apiRequest === "post") addProduct(newProduct, navigate);
 };
 
 export default submitHandler;

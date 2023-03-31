@@ -18,9 +18,7 @@ const EditProductForm = () => {
     startDate: "",
     methodology: "",
   });
-  const [error, setError] = useState("");
   const navigate = useNavigate();
-
   /**
    * making product object from GET call morph into inputProduct object
    * @param {*} products
@@ -42,12 +40,6 @@ const EditProductForm = () => {
     }
   };
 
-  const ifError = () => {
-    if (error.length !== "") {
-      return <div>{error}</div>;
-    }
-  };
-
   useEffect(() => {
     let uuid = productId.productId;
 
@@ -60,11 +52,9 @@ const EditProductForm = () => {
         product={inputProduct}
         setProduct={setInputProduct}
         buttonText="Edit Product"
-        setError={setError}
         apiRequest="edit"
         navigate={navigate}
       />
-      {ifError()}
     </div>
   );
 };

@@ -2,35 +2,14 @@ import NewProductInput from "./NewProductInput";
 import submitHandler from "../helpers/submitHandler";
 import { useParams } from "react-router-dom";
 
-const Form = ({
-  product,
-  setProduct,
-  buttonText,
-  setError,
-  navigate,
-  apiRequest,
-}) => {
+const Form = ({ product, setProduct, buttonText, navigate, apiRequest }) => {
   const productId = useParams();
   return (
     <form
       onSubmit={(event) =>
-        submitHandler(
-          event,
-          product,
-          apiRequest,
-          navigate,
-          setError,
-          productId.productId
-        )
+        submitHandler(event, product, apiRequest, navigate, productId.productId)
       }
     >
-      <NewProductInput
-        isRequired={true}
-        label="Product Id"
-        setProduct={setProduct}
-        property="productId"
-        productValue={product.productId}
-      />
       <NewProductInput
         isRequired={true}
         label="Product Name"

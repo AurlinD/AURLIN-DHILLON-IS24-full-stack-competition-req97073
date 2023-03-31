@@ -64,8 +64,15 @@ router.get("/products/scrum-master/:scrumMasterName", (req, res) => {
 
 // post request
 router.post("/products", (req, res) => {
+  let getRandomNumber = Math.floor(Math.random() * 100_000);
+
+  // collision detector, if collision,
+  // keep changing getRandomNumber until collision is gone
+  while (db[getRandomNumber]) {
+    getRandomNumber = Math.floor(Math.random() * 100_000);
+  }
   const product = {
-    productId: req.body.productId,
+    productId: getRandomNumber,
     productName: req.body.productName,
     productOwnerName: req.body.productOwnerName,
     developers: req.body.developers,
@@ -73,14 +80,6 @@ router.post("/products", (req, res) => {
     startDate: req.body.startDate,
     methodology: req.body.methodology,
   };
-
-  // verify productId doesn't exists in database
-  if (db[product.productId]) {
-    res.status(400).json({
-      message: "productId already exists in the db",
-    });
-    return;
-  }
 
   db[product.productId] = product;
   res.status(201).json(product);

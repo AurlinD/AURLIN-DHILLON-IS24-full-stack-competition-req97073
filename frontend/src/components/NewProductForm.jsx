@@ -4,7 +4,6 @@ import Form from "./ui/Form";
 
 const NewProductForm = () => {
   const [product, setProduct] = useState({
-    productId: "",
     productName: "",
     productOwnerName: "",
     developer1: "",
@@ -16,14 +15,7 @@ const NewProductForm = () => {
     startDate: "",
     methodology: "",
   });
-  const [error, setError] = useState("");
   const navigate = useNavigate();
-
-  const ifError = () => {
-    if (error.length !== "") {
-      return <div>{error}</div>;
-    }
-  };
 
   return (
     <div>
@@ -33,9 +25,7 @@ const NewProductForm = () => {
         buttonText="Add Product"
         navigate={navigate}
         apiRequest="post"
-        setError={setError}
       />
-      {ifError()}
     </div>
   );
 };
