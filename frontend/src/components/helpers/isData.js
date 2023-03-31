@@ -1,5 +1,5 @@
 /**
- *
+ * Check if data lists empty or not
  * @returns boolean
  */
 const isData = (products) => {
