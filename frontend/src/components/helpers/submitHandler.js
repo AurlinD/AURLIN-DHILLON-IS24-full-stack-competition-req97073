@@ -2,11 +2,11 @@ import updateProduct from "../api/updateProduct";
 import addProduct from "../api/addProduct";
 
 /**
- * handles edit/post depending on apiFunction string input. creates a new product and
+ * handles edit/post depending on apiRequest string input. creates a new product and
  * makes the appropriate API request to edit/add to db.
  * @param {*} event
  * @param {*} product
- * @param {*} apiFunction
+ * @param {*} apiRequest
  * @param {*} navigate
  * @param {*} setError
  * @param {*} productId
@@ -14,7 +14,7 @@ import addProduct from "../api/addProduct";
 const submitHandler = (
   event,
   product,
-  apiFunction,
+  apiRequest,
   navigate,
   setError,
   productId
@@ -39,10 +39,10 @@ const submitHandler = (
     methodology: product.methodology,
   };
 
-  if (apiFunction === "edit")
+  if (apiRequest === "edit")
     updateProduct(newProduct, navigate, setError, productId);
 
-  if (apiFunction === "post") addProduct(newProduct, navigate, setError);
+  if (apiRequest === "post") addProduct(newProduct, navigate, setError);
 };
 
 export default submitHandler;
