@@ -9,11 +9,11 @@ paths:
     get:
       tags:
         - Products
-      summary: Get all products
+      summary: Get all products.
       operationId: getProducts
       responses:
         "200":
-          description: Products found
+          description: List of Products.
           content:
             application/json:
               schema:
@@ -23,7 +23,7 @@ paths:
     post:
       tags:
         - Products
-      summary: Add product
+      summary: Add product.
       operationId: addProduct
       requestBody:
         required: true
@@ -33,23 +33,21 @@ paths:
               $ref: "#/components/schemas/Products"
       responses:
         "201":
-          description: New product created
+          description: New product created.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Products"
-        "404":
-          description: productId does not exists in the db
   /products/{productId}:
     put:
       tags:
         - Products
-      summary: update product with product ID
+      summary: Updates the product with a given ID.
       operationId: updateProduct
       parameters:
         - in: path
           name: productId
-          description: ID of the product to replace.
+          description: ID of the product to update.
           required: true
           schema:
             type: integer
@@ -61,23 +59,23 @@ paths:
               $ref: "#/components/schemas/Products"
       responses:
         "201":
-          description: Product updated successfully
+          description: Product updated successfully.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Products"
         "404":
-          description: productId does not exist in the db
+          description: product with given ID does not exist/
 
     delete:
       tags:
         - Products
-      summary: delete product by id
+      summary: Removes the product with a given ID.
       operationId: deleteProduct
       parameters:
         - in: path
           name: productId
-          description: delete product by id
+          description: ID of product to delete.
           required: true
           schema:
             type: integer
@@ -90,7 +88,7 @@ paths:
             text/plain:
               schema:
                 type: integer
-                example: productId does not exist in the db
+                example: product with given ID does not exist.
 
 components:
   schemas:
@@ -106,27 +104,27 @@ components:
       properties:
         productId:
           type: integer
-          description: UUID for each product
+          description: ID for a product.
           example: "1"
         productOwnerName:
           type: string
-          description: Owner of product
+          description: Name of the product owner associated with the product.
           example: Ernest Wiegand
         developers:
           type: array
           items:
             type: string
-          description: Developers working on project
+          description: List of developers working on the product
           example: ["Delores Collier", "Margaret Labadie", "Jermaine Padberg"]
         scrumMasterName:
           type: string
-          description: leads scrums in project
+          description: Name of the scrum master associated with the product.
           example: Nadine Cormier
         startDate:
           type: string
-          description: Starting date of the project
+          description: Starting date of the project.
           example: "1995/01/12"
         methodology:
           type: string
-          description: Development principles
+          description: Development principles associated with the product.
           example: "Waterfall"
