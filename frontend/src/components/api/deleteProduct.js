@@ -9,7 +9,7 @@ import getProducts from "./getProducts";
  */
 const deleteProduct = (product, input, setProducts) => {
   axios
-    .delete(`http://localhost:3008/api/products/${product.productId}`)
+    .delete(`http://localhost:3000/api/products/${product.productId}`)
     .then(() => {
       // after successful deletion, call GET API to update the list.
       getProducts(input, setProducts);

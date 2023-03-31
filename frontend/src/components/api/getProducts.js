@@ -7,7 +7,7 @@ import axios from "axios";
  */
 const getProducts = (input, setProducts) => {
   axios
-    .get(`http://localhost:3008/api/products/${input}`)
+    .get(`http://localhost:3000/api/products/${input}`)
     .then((res) => {
       // check if array or single object, update products state accordingly.
       if (Array.isArray(res.data)) {

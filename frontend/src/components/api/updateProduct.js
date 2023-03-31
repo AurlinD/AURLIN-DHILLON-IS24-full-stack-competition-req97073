@@ -14,7 +14,7 @@ const updateProduct = (updatedProduct, navigate, setError, productId) => {
 
   axios
     .put(
-      `http://localhost:3008/api/products/${updatedProduct.productId}`,
+      `http://localhost:3000/api/products/${updatedProduct.productId}`,
       updatedProduct
     )
     .then(() => {

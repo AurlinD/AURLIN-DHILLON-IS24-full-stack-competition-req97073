@@ -91,7 +91,7 @@ router.put("/products/:productId", (req, res) => {
   //verify productId exists in database
   if (db[product.productId] === undefined) {
     res.status(404).json({
-      message: "productId does not exists in the db",
+      message: "productId does not exist in the db",
     });
     return;
   }
@@ -113,4 +113,4 @@ router.delete("/products/:productId", (req, res) => {
 
 app.use("/api", router);
 
-app.listen(3008, () => console.log("Server started"));
+app.listen(3000, () => console.log("Server started"));

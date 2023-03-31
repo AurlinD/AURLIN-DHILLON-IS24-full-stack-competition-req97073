@@ -14,4 +14,4 @@ ENV PATH /app/node_modules/.bin:$PATH
 RUN npm install
 
 # command executable
-CMD npm start --host 0.0.0.0 --port 3000 --disableHostCheck true
+CMD npm start --host 0.0.0.0 --port 3008 --disableHostCheck true

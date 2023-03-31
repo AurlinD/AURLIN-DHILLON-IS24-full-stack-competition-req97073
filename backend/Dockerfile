@@ -13,7 +13,7 @@ ENV NODE_ENV=development
 # Install dependencies
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 3008
 
 # command executable
 CMD ["npm", "run", "devStart"]

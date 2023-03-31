@@ -7,7 +7,7 @@ import axios from "axios";
  */
 const getProductsScrumMaster = (inputScrumMaster, setProducts) => {
   axios
-    .get(`http://localhost:3008/api/products/scrum-master/${inputScrumMaster}`)
+    .get(`http://localhost:3000/api/products/scrum-master/${inputScrumMaster}`)
     .then((res) => {
       setProducts(res.data);
     })
