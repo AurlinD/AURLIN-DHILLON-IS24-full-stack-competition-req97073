@@ -10,9 +10,13 @@ Backend: Nodejs, Express.
 Virtualization: Docker.
 
 There is a deprecation warning that is still pending to be fixed from my research after running the Docker compile. 
+
 Frontend runs on http://localhost:3000/
-Backend runs on http://localhost:3008/api/
+
+Backend runs on http://localhost:3008/api/ (Example: http://localhost:3008/api/products for GET request)
+
 Health URL is http://localhost:3008/api/healthcheck
+
 
 ## Getting Started
 
