@@ -1,3 +1,5 @@
+import onChangeHandler from "../helpers/onChangeHandler";
+
 const NewProductInput = ({
   label,
   setProduct,
@@ -6,14 +8,6 @@ const NewProductInput = ({
   productValue,
   placeholder,
 }) => {
-  const onChangeHandler = (val) => {
-    // update the specific product property on input update
-    setProduct((prev) => ({
-      ...prev,
-      [property]: val,
-    }));
-  };
-
   return (
     <div>
       <label htmlFor="label">{label} : </label>
@@ -22,7 +16,9 @@ const NewProductInput = ({
         required={isRequired}
         value={productValue}
         placeholder={placeholder}
-        onChange={(event) => onChangeHandler(event.target.value)}
+        onChange={(event) =>
+          onChangeHandler(event.target.value, setProduct, property)
+        }
       />
     </div>
   );
