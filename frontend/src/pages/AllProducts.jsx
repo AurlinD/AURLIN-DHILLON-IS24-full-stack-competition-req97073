@@ -10,7 +10,7 @@ const AllProducts = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getProducts(input, setProducts);
+    getProducts("", setProducts);
   }, []);
 
   return (
