@@ -49,8 +49,8 @@ router.get("/products/:productId", (req, res) => {
 router.post("/products", (req, res) => {
   let getRandomNumber = Math.floor(Math.random() * 100_000);
 
-  // collision detector, if collision,
-  // keep changing getRandomNumber until collision is gone
+  // collision detector,
+  // if collision keep changing getRandomNumber until collision is gone
   while (db[getRandomNumber]) {
     getRandomNumber = Math.floor(Math.random() * 100_000);
   }
