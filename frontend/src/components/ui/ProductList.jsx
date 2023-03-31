@@ -25,7 +25,12 @@ const ProductList = ({
 
   return (
     <div>
-      <button onClick={() => navigate("/new-product")}>Add New Product</button>
+      <button
+        style={{ display: "block" }}
+        onClick={() => navigate("/new-product")}
+      >
+        Add New Product
+      </button>
       <input
         placeholder="Search Product ID..."
         onChange={(event) => setInput(event.target.value)}

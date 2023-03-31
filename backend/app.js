@@ -4,6 +4,13 @@ const db = require("./data");
 const express = require("express");
 const app = express();
 const router = express.Router();
+
+// swagger implementation to /api-docs route
+const swaggerUi = require("swagger-ui-express");
+const YAML = require("yamljs");
+const swaggerDocument = YAML.load("./swaggerAPI.yaml");
+app.use("/api/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 const cors = require("cors");
 
 // enable cors
