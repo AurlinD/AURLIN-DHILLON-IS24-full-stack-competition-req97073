@@ -6,7 +6,7 @@ import submitHandler from "./helpers/submitHandler";
 
 const EditProductForm = () => {
   const productId = useParams();
-  const [product, setProduct] = useState({
+  const [inputProduct, setInputProduct] = useState({
     productId: productId.productId,
     productName: "",
     productOwnerName: "",
@@ -19,35 +19,39 @@ const EditProductForm = () => {
     startDate: "",
     methodology: "",
   });
-  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
+
+  const formatProducts = (products) => {
+    if (Array.isArray(products) && products.length === 1) {
+      const { developers, ...rest } = products[0];
+      const [developer1, developer2, developer3, developer4, developer5] =
+        developers;
+
+      setInputProduct({
+        ...rest,
+        developer1: developer1 ?? "",
+        developer2: developer2 ?? "",
+        developer3: developer3 ?? "",
+        developer4: developer4 ?? "",
+        developer5: developer5 ?? "",
+      });
+    }
+  };
 
   useEffect(() => {
     let uuid = productId.productId;
 
-    getProducts(uuid, setProducts);
+    getProducts(uuid, formatProducts);
   }, []);
-
-  useEffect(() => {
-    if (products.length === 0) return;
-    let developers = products[0].developers,
-      temp = { ...products[0] };
-
-    developers.forEach((curr, index) => {
-      temp[`developer${index + 1}`] = curr;
-    });
-
-    setProduct({ ...temp });
-  }, [products]);
 
   return (
     <div>
       <Forms
         submitHandler={(event) =>
-          submitHandler(event, product, "edit", navigate)
+          submitHandler(event, inputProduct, "edit", navigate)
         }
-        product={product}
-        setProduct={setProduct}
+        product={inputProduct}
+        setProduct={setInputProduct}
         buttonText="Edit Product"
       />
     </div>

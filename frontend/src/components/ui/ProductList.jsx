@@ -12,6 +12,17 @@ const ProductList = ({
   setInputScrumMaster,
   navigate,
 }) => {
+  const productList = isProducts(products) ? (
+    <div>No products found</div>
+  ) : (
+    <List
+      products={products}
+      setProducts={setProducts}
+      input={input}
+      navigate={navigate}
+    />
+  );
+
   return (
     <div>
       <button onClick={() => navigate("/new-product")}>Add New Product</button>
@@ -33,16 +44,7 @@ const ProductList = ({
         Search Scrum Master
       </button>
       <p>Total results : {products.length}</p>
-      {isProducts(products) ? (
-        <div>No products found</div>
-      ) : (
-        <List
-          products={products}
-          setProducts={setProducts}
-          input={input}
-          navigate={navigate}
-        />
-      )}
+      {productList}
     </div>
   );
 };
