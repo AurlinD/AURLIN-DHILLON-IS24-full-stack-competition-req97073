@@ -4,6 +4,7 @@ import axios from "axios";
  * PUT request
  * @param {*} updatedProduct
  * @param {*} navigate
+ * @param {*} productId
  */
 const updateProduct = (updatedProduct, navigate, productId) => {
   updatedProduct.productId = productId;
