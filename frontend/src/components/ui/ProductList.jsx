@@ -53,29 +53,33 @@ const ProductList = ({
       >
         Add New Product
       </button>
-      <button
-        style={{ display: "block" }}
-        type="submit"
-        onClick={() => getProducts("", setProducts)}
-      >
-        Get Entire Products List
-      </button>
-      <input
-        placeholder="Search Developer..."
-        onChange={(event) => setDeveloperInput(event.target.value)}
-      />
-      <button type="submit" onClick={() => handleDeveloperSubmit()}>
-        Search Developer Products
-      </button>
-      <input
-        placeholder="Search Scrum Master..."
-        onChange={(event) => setscrumMasterInput(event.target.value)}
-      />
-      <button type="submit" onClick={() => handleScrumMasterSubmit()}>
-        Search Scrum Master Products
-      </button>
-      <p>Total results : {products.length}</p>
-      {productList}
+      <div style={{ display: "block" }}>
+        <button type="submit" onClick={() => getProducts("", setProducts)}>
+          Get Entire Products List
+        </button>
+        <span style={{ marginLeft: "20px" }}>
+          Please use this if you want to reset the list after searching for
+          developer/scrum master
+        </span>
+      </div>
+      <div style={{ marginTop: "20px" }}>
+        <input
+          placeholder="Search Developer..."
+          onChange={(event) => setDeveloperInput(event.target.value)}
+        />
+        <button type="submit" onClick={() => handleDeveloperSubmit()}>
+          Search Developer Products
+        </button>
+        <input
+          placeholder="Search Scrum Master..."
+          onChange={(event) => setscrumMasterInput(event.target.value)}
+        />
+        <button type="submit" onClick={() => handleScrumMasterSubmit()}>
+          Search Scrum Master Products
+        </button>
+        <p>Total results : {products.length}</p>
+        {productList}
+      </div>
     </div>
   );
 };
