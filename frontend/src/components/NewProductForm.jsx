@@ -22,7 +22,7 @@ const NewProductForm = () => {
       <Form
         product={product}
         setProduct={setProduct}
-        buttonText="Add Product"
+        buttonText="On Save"
         navigate={navigate}
         apiRequest="post"
       />
