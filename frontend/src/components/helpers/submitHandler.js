@@ -9,6 +9,7 @@ import addProduct from "../api/addProduct";
  * @param {*} apiFunction
  * @param {*} navigate
  * @param {*} setError
+ * @param {*} productId
  */
 const submitHandler = (
   event,

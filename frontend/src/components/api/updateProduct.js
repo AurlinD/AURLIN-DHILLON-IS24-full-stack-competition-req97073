@@ -5,6 +5,7 @@ import axios from "axios";
  * @param {*} updatedProduct
  * @param {*} navigate
  * @param {*} setError
+ * @param {*} productId
  */
 const updateProduct = (updatedProduct, navigate, setError, productId) => {
   if (updatedProduct.productId !== productId) {
