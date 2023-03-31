@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import getProducts from "./api/getProducts";
 import Forms from "../components/ui/Forms";
 import submitHandler from "./helpers/submitHandler";
 
 const EditProductForm = () => {
+  const productId = useParams();
   const [product, setProduct] = useState({
-    productId: "",
+    productId: productId.productId,
     productName: "",
     productOwnerName: "",
     developer1: "",
@@ -22,8 +23,7 @@ const EditProductForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    let url = window.location.pathname.split("/"),
-      uuid = url[url.length - 1];
+    let uuid = productId.productId;
 
     getProducts(uuid, setProducts);
   }, []);
