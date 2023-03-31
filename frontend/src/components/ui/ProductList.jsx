@@ -59,7 +59,7 @@ const ProductList = ({
         </button>
         <span style={{ marginLeft: "20px" }}>
           Please use this if you want to reset the list after searching for
-          developer/scrum master
+          developer/scrum master products search
         </span>
       </div>
       <div style={{ marginTop: "20px" }}>
@@ -70,6 +70,8 @@ const ProductList = ({
         <button type="submit" onClick={() => handleDeveloperSubmit()}>
           Search Developer Products
         </button>
+      </div>
+      <div style={{ display: "block" }}>
         <input
           placeholder="Search Scrum Master..."
           onChange={(event) => setscrumMasterInput(event.target.value)}
@@ -77,9 +79,9 @@ const ProductList = ({
         <button type="submit" onClick={() => handleScrumMasterSubmit()}>
           Search Scrum Master Products
         </button>
-        <p>Total results : {products.length}</p>
-        {productList}
       </div>
+      <p>Total results : {products.length}</p>
+      {productList}
     </div>
   );
 };
