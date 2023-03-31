@@ -48,7 +48,7 @@ const EditProductForm = () => {
     let uuid = productId.productId;
 
     getProducts(uuid, formatProducts);
-  }, []);
+  }, [productId.productId]);
 
   return (
     <div>

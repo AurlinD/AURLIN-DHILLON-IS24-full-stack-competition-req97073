@@ -6,7 +6,11 @@ import axios from "axios";
  * @param {*} navigate
  * @param {*} setError
  */
-const updateProduct = (updatedProduct, navigate, setError) => {
+const updateProduct = (updatedProduct, navigate, setError, productId) => {
+  if (updatedProduct.productId !== productId) {
+    setError("productId cannot be changed. Please use original productId");
+  }
+
   axios
     .put(
       `http://localhost:3008/api/products/${updatedProduct.productId}`,
@@ -19,7 +23,7 @@ const updateProduct = (updatedProduct, navigate, setError) => {
     })
     .catch((err) => {
       console.error(err);
-      setError("post request failure. productId already exists in the db.");
+      setError("put request failure. productId already exists in the db.");
     });
 };
 

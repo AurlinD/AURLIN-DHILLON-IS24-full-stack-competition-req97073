@@ -1,5 +1,6 @@
 import NewProductInput from "./NewProductInput";
 import submitHandler from "../helpers/submitHandler";
+import { useParams } from "react-router-dom";
 
 const Form = ({
   product,
@@ -9,10 +10,18 @@ const Form = ({
   navigate,
   apiRequest,
 }) => {
+  const productId = useParams();
   return (
     <form
       onSubmit={(event) =>
-        submitHandler(event, product, apiRequest, navigate, setError)
+        submitHandler(
+          event,
+          product,
+          apiRequest,
+          navigate,
+          setError,
+          productId.productId
+        )
       }
     >
       <NewProductInput
