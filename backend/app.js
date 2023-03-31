@@ -45,23 +45,6 @@ router.get("/products/:productId", (req, res) => {
   res.json(product);
 });
 
-// get specific scrum master products
-router.get("/products/scrum-master/:scrumMasterName", (req, res) => {
-  let name = req.params.scrumMasterName.replace("-", " ");
-  let scrumMasterProducts = Object.values(db).filter((product) => {
-    return product.scrumMasterName === name;
-  });
-
-  // verify scrumMasterProduct is returning a list
-  if (scrumMasterProducts.length === 0) {
-    res
-      .status(404)
-      .json({ message: "Cannot find Scrum Master Products", name });
-    return;
-  }
-  res.json(scrumMasterProducts);
-});
-
 // post request
 router.post("/products", (req, res) => {
   let getRandomNumber = Math.floor(Math.random() * 100_000);

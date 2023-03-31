@@ -1,7 +1,7 @@
 import editHandler from "../helpers/editHandler";
 import deleteProduct from "../api/deleteProduct";
 
-const List = ({ products, setProducts, input, navigate }) => {
+const List = ({ products, setProducts, navigate }) => {
   // map over products array to display list for each product
   return products.map((product) => {
     return (
@@ -14,7 +14,7 @@ const List = ({ products, setProducts, input, navigate }) => {
         <p>Start Date: {product.startDate}</p>
         <p>Methodology: {product.methodology}</p>
         <button onClick={() => editHandler(product, navigate)}>Edit</button>
-        <button onClick={() => deleteProduct(product, input, setProducts)}>
+        <button onClick={() => deleteProduct(product, setProducts)}>
           Delete
         </button>
       </div>

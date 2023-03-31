@@ -5,8 +5,8 @@ import ProductList from "../components/ui/ProductList";
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
-  const [input, setInput] = useState("");
-  const [inputScrumMaster, setInputScrumMaster] = useState("");
+  const [developerInput, setDeveloperInput] = useState("");
+  const [scrumMasterInput, setscrumMasterInput] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,10 +18,10 @@ const AllProducts = () => {
       <ProductList
         products={products}
         setProducts={setProducts}
-        input={input}
-        setInput={setInput}
-        inputScrumMaster={inputScrumMaster}
-        setInputScrumMaster={setInputScrumMaster}
+        developerInput={developerInput}
+        setDeveloperInput={setDeveloperInput}
+        scrumMasterInput={scrumMasterInput}
+        setscrumMasterInput={setscrumMasterInput}
         navigate={navigate}
       />
     </div>

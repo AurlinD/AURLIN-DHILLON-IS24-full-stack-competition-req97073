@@ -4,15 +4,14 @@ import getProducts from "./getProducts";
 /**
  * DELETE request
  * @param {*} product
- * @param {*} input
  * @param {*} setProducts
  */
-const deleteProduct = (product, input, setProducts) => {
+const deleteProduct = (product, setProducts) => {
   axios
     .delete(`http://localhost:3000/api/products/${product.productId}`)
     .then(() => {
       // after successful deletion, call GET API to update the list.
-      getProducts(input, setProducts);
+      getProducts("", setProducts);
     })
     .catch((err) => {
       console.error(err);
