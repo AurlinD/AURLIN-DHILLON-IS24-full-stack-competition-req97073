@@ -3,9 +3,9 @@
 
 ## Notes
 
-Frontend: React
-Backend: Nodejs, express
-Virtualization: Docker
+Frontend: React.
+Backend: Nodejs, express.
+Virtualization: Docker.
 
 There is a deprecation warning that is still pending to be fixed from my research after running the Docker compile. 
 Frontend runs on http://localhost:3000/
