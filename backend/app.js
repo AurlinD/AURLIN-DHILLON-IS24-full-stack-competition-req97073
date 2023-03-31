@@ -6,7 +6,10 @@ const app = express();
 const router = express.Router();
 const cors = require("cors");
 
+// enable cors
 app.use(cors());
+
+// parse incoming json requests
 app.use(express.json());
 
 // healthcheck
