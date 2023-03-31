@@ -1,7 +1,7 @@
 import editHandler from "../helpers/editHandler";
 import deleteProduct from "../api/deleteProduct";
 
-const list = ({ products, setProducts, input, navigate }) => {
+const List = ({ products, setProducts, input, navigate }) => {
   return products.map((product) => {
     return (
       <div key={product.productId}>
@@ -21,4 +21,4 @@ const list = ({ products, setProducts, input, navigate }) => {
   });
 };
 
-export default list;
+export default List;
