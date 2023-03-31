@@ -20,6 +20,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Products"
+
     post:
       tags:
         - Products
@@ -39,6 +40,26 @@ paths:
               schema:
                 $ref: "#/components/schemas/Products"
   /products/{productId}:
+    get:
+      tags:
+        - Products
+      summary: Get specific product.
+      operationId: getProduct
+      parameters:
+        - in: path
+          name: productId
+          description: ID of the product to get.
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Found Product.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Products"
+
     put:
       tags:
         - Products

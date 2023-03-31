@@ -12,9 +12,19 @@ There is a deprecation warning that is still pending to be fixed from my researc
 
 Frontend runs on http://localhost:3008/
 
-Backend runs on http://localhost:3000/api/ (Example: http://localhost:3000/api/products for GET request)
+Backend runs on http://localhost:3000/api/
 
-Health URL is http://localhost:3000/api/healthcheck
+GET http://localhost:3000/api/products
+
+GET specific http://localhost:3000/api/products/:productId
+
+POST endpoint http://localhost:3000/api/products
+
+PUT http://localhost:3000/api/products/:productId
+
+DELETE http://localhost:3000/api/products/:productId
+
+Health API is http://localhost:3000/api/healthcheck
 
 ## Getting Started
 
