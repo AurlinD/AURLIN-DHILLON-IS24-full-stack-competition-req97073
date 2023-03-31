@@ -7,7 +7,7 @@ const List = ({ products, setProducts, navigate }) => {
     return (
       <div key={product.productId}>
         <h2>Product Name: {product.productName}</h2>
-        <h2>Product Id: {product.productId}</h2>
+        <p>Product Id: {product.productId}</p>
         <p>Product Owner Name: {product.productOwnerName}</p>
         <p>Developers: {product.developers.join(" , ")}</p>
         <p>Scrum Master Name: {product.scrumMasterName}</p>
