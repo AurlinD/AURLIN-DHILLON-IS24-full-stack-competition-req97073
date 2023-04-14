@@ -1,4 +1,4 @@
-Create/Search/Delete/Edit data with various established API endpoints to manipulate existing projects and the teams assigned to them
+Search a list of projects a developer/scrum master is assigned to. Create/Search/Delete/Edit data with various established API endpoints to manipulate existing projects and the personnel assigned to them.
 
 # AURLIN-DHILLON-IS24-full-stack-competition-req97073
 
