@@ -1,4 +1,10 @@
+Create/Search/Delete/Edit data through various API calls communicating with a mock data backend.
+
 # AURLIN-DHILLON-IS24-full-stack-competition-req97073
+
+## Final Product
+
+!["Start"](docs/view.png)
 
 ## Notes
 
