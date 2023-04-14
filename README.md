@@ -1,4 +1,4 @@
-Create/Search/Delete/Edit data through various API calls communicating with a mock data backend.
+Create/Search/Delete/Edit data with various established API endpoints to manipulate existing projects and the teams assigned to them
 
 # AURLIN-DHILLON-IS24-full-stack-competition-req97073
 
